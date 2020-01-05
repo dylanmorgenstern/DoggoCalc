@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap');
+        </style>
+    <title>doggoCalculator</title>
+    <meta property="og:description" content="A BMI Calculator for Man's Best Friend">
+    <meta property="og:image" content="https://i.imgur.com/VTkC9mR.jpg">
+</head>
+<body>
+    <div class="slider">
+        <section id="section1">
+            <p id="button">
+                <a class="github-button" href="https://github.com/dylanmorgenstern" data-size="large" data-show-count="true" aria-label="Star dylanmorgenstern/doggoCalculator on GitHub">Star</a>
+                <br>
+                Built by Dylan Morgenstern
+                <br>  
+            </p>
+            <h1 class="one">A BMI Calculator for Man's Best Friend</h1>
+            <img class="one" src="/images/dogg.png">
+            <h2 class="one">Get an accurate BMI value for your dog by answering just a few simple questions</h2>
+            <div class="swipe-right"></div>
+        </section>
+        <section id="section2">
+            <h1 class="two">What is your dog's gender?</h1>
+            <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+            </select>
+            <img class="two" src="/images/dog4.png">
+            <div class="swipe-right"></div>
+            <div class="swipe-left"></div>
+        </section>
+        <section id="section3">
+            <h1 class="three">What is your dog's breed?</h1>
+            <h2 class="three">(If your dog is mixed, please select it's dominant breed)</h2>
+            <select id="pupperDropDown" class="pupperDropDown">
+                <option id="option">Select Your Breed</option>
+            </select>
+                <img class=three src="/images/dog2.png">
+                <div class="swipe-right"></div>
+                <div class="swipe-left"></div>
+        </section>
+        <section id="section4">
+            <h1 class="four">What is your dog's weight?</h1>
+            <div class="form">
+                <input id="weight" type="number" name="name" autocomplete="off" required/>
+                <label for="name" class="label-name">
+                    <span class="content-name">Pounds</span>
+                </label>
+            </div>
+            <img class=four src="/images/dog1.png">
+            <div class="swipe-right"></div>
+            <div class="swipe-left"></div>
+        </section>
+        <section id="section5">
+            <h1 class="five">What is your dog's height?</h1>
+            <h2 class="five">(Measure up to the shoulders)</h2>
+            <div class="form">
+                    <input id="height" type="number" name="name" autocomplete="off" required/>
+                    <label for="name" class="label-name">
+                        <span class="content-name">Inches</span>
+                    </label>
+                </div>
+                <img class="five" src="/images/dog3.png">
+                <div class="swipe-left"></div>
+                <button id="modal-btn" class="button">Calculate</button>
+<div id="modal" class="modal">
+    <div class="modal-content">
+    <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Your Dog's Results:</h2>
+    </div>
+    <div class="modal-body">
+        <p id="results"></p>
+    </div>
+    <div class="modal-footer">
+        <button class="recalculate" onClick=window.location.reload(); >Recalculate!</button>
+    </div>
+    </div>
+</div>
+</div>
+</body>
+<script async defer src="//buttons.github.io/buttons.js"></script>
+<script type="text/javascript" src="/main.js"></script>
+</html>

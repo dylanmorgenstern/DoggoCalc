@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Amatic SC', Arial, Helvetica, sans-serif;
+}
+
+body {
+	overflow-y: hidden;
+}
+
+.slider {
+	align-items: center;
+	font-family: sans-serif;
+	scroll-snap-type: x mandatory;	
+	display: flex;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: scroll;
+}
+
+section {
+	border-right: 1px solid white;
+	padding: 1rem;
+	min-width: 100vw;
+	height: 100vh;
+	scroll-snap-align: start;
+	align-items: center;
+	text-align: center;
+	position: relative;
+}
+
+h1 {
+	position: absolute;
+	top: 12%;
+	transform: translateY(-50%);
+	text-align: center;
+	color: #fb8604;
+	width: 100%;
+	left: 0;
+	font-size: calc(1.2rem + 3vw);
+	font-weight: 700;
+	z-index: 1;
+}
+
+
+h1.one {
+	top: 15%;
+	animation-name: modalopen;
+	animation-duration: var(--modal-duration);
+}
+
+h2.one {
+	position: absolute;
+	text-align: center;
+	top: 74%;
+	width: 95%;
+	font-size: calc(1rem + 2vw);
+	color: #fb8604;
+	font-weight: 700;
+	animation-name: modalopen;
+	animation-duration: var(--modal-duration);
+}
+
+
+img.one {
+	position: absolute;
+	top: 48%;
+	transform: translateY(-50%);
+	text-align: center;
+	left: 0;
+	width: 100%;
+	font-size: calc(0.5rem + 3vw);
+}
+
+.swipe-right::before{
+	content: '>';
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fb8604;
+	position: absolute;
+	opacity: 1;
+	width: 6rem;
+	font-size: 1rem;
+	height: 5rem;
+	line-height: 4rem;
+	text-align: center;
+	bottom: 2rem;
+	margin-left: -3rem;
+	left: 75%;
+	animation: bounce-right 1.1s ease-in-out infinite;
+}
+
+.swipe-left::after {
+	content: '<';
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fb8604;
+	position: absolute;
+	opacity: 1;
+	width: 6rem;
+	font-size: 1rem;
+	height: 5rem;
+	line-height: 4rem;
+	text-align: center;
+	bottom: 2rem;
+	margin-left: -3rem;
+	left: 25%;
+	animation: bounce-left 1.1s ease-in-out infinite;
+}
+
+@keyframes bounce-right {
+	50% { transform: translateX(5%); }
+	100% {  transform: translateX(0%);}
+}
+
+@keyframes bounce-left {
+	50% { transform: translateX(5%); }
+	100% {  transform: translateX(0%);}
+}
+
+.top-panel {
+	width: 100%;
+	height: 100vh;
+	background: #111;
+	position: relative;
+}
+
+select {
+	position: absolute;
+	top: 30%;
+	transform: translateY(-50%);
+	text-align: center;
+	left: 30%;
+	width: 40%;
+	font-size: calc(1rem + 1vw);
+	z-index: 1;
+	border-color: #fb8604;
+	color: #588157;
+  	transition: 0.15s;
+  	opacity: 1;
+  	pointer-events: auto;
+}
+
+select option {
+	color: #588157;
+	position: relative;
+}
+
+
+img.two, img.five, img.four, img.three {
+	position: absolute;
+	top: 65%;
+	transform: translateY(-50%);
+	text-align: center;
+	left: 10%;
+	width: 80%;
+}
+
+h2.three, h2.five {
+	position: relative;
+	text-align: center;
+	top: 17%;
+	width: 100%;
+	font-size: calc(0.5rem + 2vw);
+	color: #588157;
+	font-weight: 300;
+}
+
+.form {
+	position: relative;
+	width: 50%;
+	height: 100px;
+	top: 20%;
+	text-align: center;
+	left: 25%;
+	color: #fb8604;
+	overflow: hidden;
+	font-size: 30px;
+	z-index: 1;
+}
+
+.form input {
+	width: 100%;
+	height: 100%;
+	color: #588157;
+	font-weight: 700;
+	padding-top: 40px;
+	border: none;
+	outline: none;
+	font-size: 30px;
+}
+
+.form label {
+	position: absolute;
+	bottom: 0px;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	border-bottom: 1px solid #fb8604;
+}
+
+.form label::after {
+	content: "";
+	position: absolute;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	border-bottom: 3px solid #fb8604;
+	bottom: -1px;
+	font-size: 30px;
+	transform: translateX(-100%);
+	transition: transform 0.3s ease;
+}
+
+.content-name {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	transition: all 0.3s ease;
+}
+
+.form input:focus + .label-name .content-name, 
+.form input:valid + .label-name .content-name {
+	transform: translateY(-150%);
+	font-size: 30px;
+	color:#fb8604;
+}
+
+.form input:focus + .label-name::after, 
+.form input:valid + .label-name::after {
+	transform: translateX(0%);
+}
+
+img {
+transform: translateY(-150%);
+transition: transform 0.7s linear;
+opacity: 0;
+}
+
+img.active {
+	opacity: 1;
+	transform: translateY(-60%);
+}
+
+:root {
+	--modal-duration: 1s;
+	--modal-color: #fb8604;
+}
+
+.button {
+	position: absolute;
+	top: 83%;
+	width: 100%;
+	left: 0;
+	font-size: calc(1rem + 2vw);
+	color: #588157;
+	font-weight: 700;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor:pointer;
+	outline: none;
+	animation-name: modalopen;
+	animation-duration: var(--modal-duration);
+}
+
+.button:hover,
+.button:focus
+.button::after {
+	color: #000;
+	cursor: pointer;
+}
+
+.recalculate {
+	padding: 2px;
+	color: #fff;
+	background-color: Transparent;
+    background-repeat: no-repeat;
+	border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+	color: #588157;
+	font-size: calc(1rem + 1.5vw);
+	margin: 5% auto;
+	width: 75%;
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+	animation-name: modalopen;
+	animation-duration: var(--modal-duration);
+}
+
+p.initial{
+	font-size: calc(1.5rem + 1.8vw);
+}
+
+.modal-header h2{
+	margin: 0;
+}
+
+.modal-footer button {
+	margin: 0;
+	font-size: calc(1rem + 1vw);
+	font-weight: 700;
+}
+
+.modal-header {
+	background: var(--modal-color);
+	padding: 15px;
+	color: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.modal-body {
+	padding: 10px 20px;
+	background: #fff;
+}
+
+.modal-footer {
+	background: var(--modal-color);
+	padding: 10px;
+	color: #fff;
+	text-align: center;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.close {
+	color: #ccc;
+	float: right;
+	font-size: 30px;
+	color: #fff;
+}
+
+.close:hover,
+.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+@keyframes modalopen {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
