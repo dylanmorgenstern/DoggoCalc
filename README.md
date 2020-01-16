@@ -1,5 +1,3 @@
 # doggoCalc
 
-A BMI Calculator for Man's Best Friend. Built using theDogApi. 
-
-Technologies used: HTML5, CSS3, vanilla JavaScript.
+A BMI Calculator for Man's Best Friend. Built using theDogApi. HTML, CSS, JS.
