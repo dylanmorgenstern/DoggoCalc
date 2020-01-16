@@ -157,26 +157,28 @@ fetchDogs();
 
 
 // IntersectionObserver
-document.addEventListener("DOMContentLoaded", () => {
-	let options = {
-	  root: null,
-	  rootMargin: "-250px -50px",
-	  threshold: 0.06
+function interObs() {
+	document.addEventListener("DOMContentLoaded", () => {
+		let options = {
+			root: null,
+			rootMargin: "-250px -50px",
+			threshold: 0.06
+		};
+		let observer = new IntersectionObserver(touching, options);
+		document.querySelectorAll("img").forEach(img => {
+			observer.observe(img);
+		});
+	});
+	touching = (selections) => {
+		selections.forEach(selection => {
+			if (selection.isIntersecting) {
+				selection.target.classList.add("active");
+			}
+			else {
+				selection.target.classList.remove("active");
+			}
+		});
 	};
+}
 
-	let observer = new IntersectionObserver(touching, options);
-	document.querySelectorAll("img").forEach(img => {
-	  observer.observe(img);
-	});
-
-  });
-
-touching = (selections, ob) => {
-	selections.forEach(selection => {
-	  if (selection.isIntersecting) {
-		selection.target.classList.add("active");
-	  } else {
-		selection.target.classList.remove("active");
-	  }
-	});
-  }
+interObs();
